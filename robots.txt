@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /confirmacion.html
+
+Sitemap: https://end-of-summer-2016.netlify.app/sitemap.xml
