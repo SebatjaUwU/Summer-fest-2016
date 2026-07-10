@@ -1,0 +1,14 @@
+# END OF SUMMER — Fan Tribute
+
+> Fiesta homenaje a los clásicos del EDM de 2016 (Avicii, Martin Garrix, David Guetta, Alan Walker, Skrillex, Marshmello, Tiësto, Calvin Harris, Hardwell, The Chainsmokers, Alesso, Galantis, Major Lazer, Dimitri Vegas & Like Mike, DJ Snake, Afrojack, Armin van Buuren, Swedish House Mafia, entre otros). Es un evento tributo con música de estos artistas, no una presentación en vivo de ellos.
+
+## Datos del evento
+- Fecha: sábado 5 de septiembre de 2026
+- Puertas: 8:00 p.m. | Inicio: 10:00 p.m. | Cierre: 3:00 a.m.
+- Lugar: Teatro Republik, Cra. 14A # 83-49, Bogotá, Colombia
+- Edad mínima: 18 años
+- Boletas: Preventa $37.000 COP, General $42.000 COP, Mesa VIP $320.000 COP
+- Compra de boletas: https://end-of-summer-2016.netlify.app/
+
+## Páginas
+- [Página del evento](https://end-of-summer-2016.netlify.app/): información completa, línea de tiempo, ubicación, precios y compra de boletas.

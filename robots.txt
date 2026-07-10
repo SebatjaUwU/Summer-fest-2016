@@ -2,4 +2,26 @@ User-agent: *
 Allow: /
 Disallow: /confirmacion.html
 
+# Rastreadores de IA (respuestas de ChatGPT, Perplexity, Claude, Google AI Overviews, Apple Intelligence)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://end-of-summer-2016.netlify.app/sitemap.xml
