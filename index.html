@@ -1790,7 +1790,7 @@
       el.classList.add('is-low');
       el.innerHTML = '<span class="stock-dot"></span> ¡Solo quedan ' + remaining + ' ' + plural + '!';
     } else {
-      el.style.display = 'none'; // disponibilidad no pública en estado normal
+      el.innerHTML = '<span class="stock-dot"></span> Quedan ' + remaining + ' ' + plural + ' disponibles';
     }
   }
 
