@@ -1769,7 +1769,7 @@
     }
   };
 
-  function renderStock(key, elId, btnId, cardId){
+  function renderStock(key, elId, btnId, cardId, alwaysShowCount){
     const cfg = STOCK[key];
     const el = document.getElementById(elId);
     const btn = document.getElementById(btnId);
@@ -1789,8 +1789,10 @@
     } else if(remaining <= cfg.lowThreshold){
       el.classList.add('is-low');
       el.innerHTML = '<span class="stock-dot"></span> ¡Solo quedan ' + remaining + ' ' + plural + '!';
-    } else {
+    } else if(alwaysShowCount){
       el.innerHTML = '<span class="stock-dot"></span> Quedan ' + remaining + ' ' + plural + ' disponibles';
+    } else {
+      el.style.display = 'none'; // disponibilidad no pública en estado normal
     }
   }
 
@@ -1823,7 +1825,7 @@
   }
 
   renderStock('general', 'generalStock', 'generalBuyBtn', 'generalCard');
-  renderStock('vip', 'vipStock', 'vipBuyBtn', 'vipCard');
+  renderStock('vip', 'vipStock', 'vipBuyBtn', 'vipCard', true);
   renderPreventa();
 </script>
 
