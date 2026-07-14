@@ -1474,9 +1474,7 @@
 
         <div class="merch-group-label">Tela</div>
         <div class="merch-fabrics">
-          <button class="fabric-chip is-active" data-fabric="algodon" data-price="80000" type="button"><b>100% Algodón</b>$80.000</button>
-          <button class="fabric-chip" data-fabric="heavyweight" data-price="120000" type="button"><b>Heavyweight</b>$120.000</button>
-          <button class="fabric-chip" data-fabric="boxy" data-price="135000" type="button"><b>Boxy Fit</b>$135.000</button>
+          <button class="fabric-chip is-active" data-fabric="seda" data-price="80000" type="button"><b>Seda Fina</b>$80.000</button>
         </div>
 
         <div class="merch-sizes">
@@ -1659,8 +1657,8 @@
 
   document.querySelectorAll('.ticket, .info-cell, .preventa, .faq-item, .merch-card').forEach(el=> io.observe(el));
 
-  const merchState = { design: 'avicii', color: 'white', fabric: 'algodon' };
-  const fabricPrices = { algodon: 80000, heavyweight: 120000, boxy: 135000 };
+  const merchState = { design: 'avicii', color: 'white', fabric: 'seda' };
+  const fabricPrices = { seda: 80000 };
 
   function formatCOP(n){
     return '$' + n.toLocaleString('es-CO');
@@ -1679,8 +1677,6 @@
       c.classList.toggle('is-active', c.getAttribute('data-fabric') === merchState.fabric);
     });
 
-    // Nota: mientras no haya fotos propias de Heavyweight/Boxy Fit,
-    // se reutilizan las fotos de la tela de algodón como referencia visual.
     const fabricPlaceholder = document.getElementById('fabricPlaceholder');
     fabricPlaceholder.classList.remove('is-active');
 
