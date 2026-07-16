@@ -1479,18 +1479,12 @@
 
         <div class="merch-group-label">Tela</div>
         <div class="merch-fabrics">
-          <button class="fabric-chip is-active" data-fabric="algodon" data-price="80000" type="button"><b>100% Algodón</b>$80.000</button>
-          <button class="fabric-chip" data-fabric="heavyweight" data-price="120000" type="button"><b>Heavyweight</b>$120.000</button>
-          <button class="fabric-chip" data-fabric="boxy" data-price="135000" type="button"><b>Boxy Fit</b>$135.000</button>
+          <button class="fabric-chip is-active" data-fabric="seda" data-price="80000" type="button"><b>Seda Fina</b>$80.000</button>
         </div>
 
         <div class="merch-sizes">
           <span class="merch-sizes-label">Tallas</span>
-          <span class="size-pill">XS</span>
           <span class="size-pill">S</span>
-          <span class="size-pill">M</span>
-          <span class="size-pill">L</span>
-          <span class="size-pill">XL</span>
         </div>
 
         <div class="merch-price" id="merchPrice"><sup>$</sup>80.000</div>
@@ -1656,8 +1650,8 @@
 
   document.querySelectorAll('.ticket, .info-cell, .preventa, .faq-item, .merch-card').forEach(el=> io.observe(el));
 
-  const merchState = { design: 'avicii', color: 'white', fabric: 'algodon' };
-  const fabricPrices = { algodon: 80000, heavyweight: 120000, boxy: 135000 };
+  const merchState = { design: 'avicii', color: 'white', fabric: 'seda' };
+  const fabricPrices = { seda: 80000 };
 
   function formatCOP(n){
     return '$' + n.toLocaleString('es-CO');
@@ -1676,8 +1670,6 @@
       c.classList.toggle('is-active', c.getAttribute('data-fabric') === merchState.fabric);
     });
 
-    // Nota: mientras no haya fotos propias de Heavyweight/Boxy Fit,
-    // se reutilizan las fotos de la tela de algodón como referencia visual.
     const fabricPlaceholder = document.getElementById('fabricPlaceholder');
 
     let hasPhotoMatch = false;
@@ -1762,13 +1754,13 @@
     },
     vip: {
       total: 10,                // <-- total de mesas VIP
-      remaining: 10,            // <-- EDITA ESTE NÚMERO
+      remaining: 5,             // <-- EDITA ESTE NÚMERO
       lowThreshold: 3,
       unit: 'mesa'
     }
   };
 
-  function renderStock(key, elId, btnId, cardId){
+  function renderStock(key, elId, btnId, cardId, alwaysShowCount){
     const cfg = STOCK[key];
     const el = document.getElementById(elId);
     const btn = document.getElementById(btnId);
@@ -1788,6 +1780,8 @@
     } else if(remaining <= cfg.lowThreshold){
       el.classList.add('is-low');
       el.innerHTML = '<span class="stock-dot"></span> ¡Solo quedan ' + remaining + ' ' + plural + '!';
+    } else if(alwaysShowCount){
+      el.innerHTML = '<span class="stock-dot"></span> Quedan ' + remaining + ' ' + plural + ' disponibles';
     } else {
       el.style.display = 'none'; // disponibilidad no pública en estado normal
     }
@@ -1822,7 +1816,7 @@
   }
 
   renderStock('general', 'generalStock', 'generalBuyBtn', 'generalCard');
-  renderStock('vip', 'vipStock', 'vipBuyBtn', 'vipCard');
+  renderStock('vip', 'vipStock', 'vipBuyBtn', 'vipCard', true);
   renderPreventa();
 </script>
 
