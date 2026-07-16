@@ -1010,6 +1010,7 @@
   .color-swatch[data-color="white"]{ background:#F7F1E4; }
   .color-swatch[data-color="black"]{ background:#141414; }
   .color-swatch.is-active{ border-color: var(--sun-soft); transform:scale(1.15); }
+  .color-swatch.is-unavailable{ display:none; }
 
   .merch-fabrics{
     display:flex;
@@ -1652,19 +1653,28 @@
 
   const merchState = { design: 'avicii', color: 'white', fabric: 'seda' };
   const fabricPrices = { seda: 80000 };
+  const designColors = { avicii: ['white','black'], garrix: ['white','black'], skrillex: ['white','black'], guetta: ['black'] };
 
   function formatCOP(n){
     return '$' + n.toLocaleString('es-CO');
   }
 
   function renderMerch(){
+    const availableColors = designColors[merchState.design] || ['white','black'];
+    if(availableColors.indexOf(merchState.color) === -1){
+      merchState.color = availableColors[0];
+    }
+
     const comboPrefix = merchState.design + '_' + merchState.color + '_';
 
     document.querySelectorAll('.merch-design-chip').forEach(c=>{
       c.classList.toggle('is-active', c.getAttribute('data-design') === merchState.design);
     });
     document.querySelectorAll('.color-swatch').forEach(c=>{
-      c.classList.toggle('is-active', c.getAttribute('data-color') === merchState.color);
+      const color = c.getAttribute('data-color');
+      const isAvailable = availableColors.indexOf(color) !== -1;
+      c.classList.toggle('is-active', color === merchState.color);
+      c.classList.toggle('is-unavailable', !isAvailable);
     });
     document.querySelectorAll('.fabric-chip').forEach(c=>{
       c.classList.toggle('is-active', c.getAttribute('data-fabric') === merchState.fabric);
